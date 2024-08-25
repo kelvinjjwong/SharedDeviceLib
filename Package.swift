@@ -19,5 +19,6 @@ let package = Package(
         .testTarget(
             name: "SharedDeviceLibTests",
             dependencies: ["SharedDeviceLib"]),
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )
