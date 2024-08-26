@@ -20,9 +20,9 @@ public struct FileTypeRecognizer {
     public static let photoExts:[String] = ["jpg", "jpeg", "png", "heic"]
     public static let videoExts:[String] = ["mov", "mp4", "mpeg", "mts", "m2ts"]
     
-    public let allowed:Set<String> = ["jpg", "jpeg", "mp4", "mov", "mpg", "mpeg", "png", "heic", "mts", "m2ts", "pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "vcf", "amr"]
+    public static let allowed:Set<String> = ["jpg", "jpeg", "mp4", "mov", "mpg", "mpeg", "png", "heic", "mts", "m2ts", "pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "vcf", "amr"]
     
-    public func recognize(from url:URL) -> ImageType {
+    public static func recognize(from url:URL) -> ImageType {
         var type = self.recognize(from: url.lastPathComponent)
         
         if type == .other {
@@ -43,7 +43,7 @@ public struct FileTypeRecognizer {
         return type
     }
     
-    public func recognize(from filename: String) -> ImageType {
+    public static func recognize(from filename: String) -> ImageType {
         let fileExt:String = (filename.split(separator: Character(".")).last?.lowercased()) ?? filename
         if FileTypeRecognizer.photoExts.contains(fileExt) {
             return.photo
