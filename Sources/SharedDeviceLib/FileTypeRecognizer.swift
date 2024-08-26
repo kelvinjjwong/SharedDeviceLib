@@ -18,7 +18,7 @@ public enum ImageType : Int {
 public struct FileTypeRecognizer {
     
     public static let photoExts:[String] = ["jpg", "jpeg", "png", "heic"]
-    static let videoExts:[String] = ["mov", "mp4", "mpeg", "mts", "m2ts"]
+    public static let videoExts:[String] = ["mov", "mp4", "mpeg", "mts", "m2ts"]
     
     public let allowed:Set<String> = ["jpg", "jpeg", "mp4", "mov", "mpg", "mpeg", "png", "heic", "mts", "m2ts", "pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "vcf", "amr"]
     
