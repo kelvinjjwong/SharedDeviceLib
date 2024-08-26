@@ -14,23 +14,23 @@ public enum ChecksumMode : Int {
 
 public struct PhoneFile {
     
-    var filename:String = ""
-    var path:String = ""
-    var onDevicePath:String = ""
-    var fileMD5:String = "" {
+    public var filename:String = ""
+    public var path:String = ""
+    public var onDevicePath:String = ""
+    public var fileMD5:String = "" {
         didSet {
             matched = ( fileMD5 == storedMD5 && fileDateTime == storedDateTime && fileSize == storedSize )
             matchedWithoutMD5 = ( fileDateTime == storedDateTime && fileSize == storedSize )
         }
     }
-    var fileDateTime:String = ""
-    var fileSize:String = ""
-    var storedMD5:String = ""
-    var storedDateTime:String = ""
-    var storedSize:String = ""
-    var importDate:String = ""
-    var importToPath:String = ""
-    var importAsFilename:String = "" {
+    public var fileDateTime:String = ""
+    public var fileSize:String = ""
+    public var storedMD5:String = ""
+    public var storedDateTime:String = ""
+    public var storedSize:String = ""
+    public var importDate:String = ""
+    public var importToPath:String = ""
+    public var importAsFilename:String = "" {
         didSet {
             stored = (importAsFilename != "")
             
@@ -45,19 +45,19 @@ public struct PhoneFile {
         }
     }
     
-    var matched:Bool = false
-    var matchedWithoutMD5:Bool = false
-    var checksumMode:ChecksumMode = .Rough
-    var stored:Bool = false
-    var deviceFile:Codable?
-    var folder:String = ""
+    public var matched:Bool = false
+    public var matchedWithoutMD5:Bool = false
+    public var checksumMode:ChecksumMode = .Rough
+    public var stored:Bool = false
+    public var deviceFile:Codable?
+    public var folder:String = ""
     
-    init(filename:String, path:String){
+    public init(filename:String, path:String){
         self.filename = filename
         self.path = path
     }
     
-    init(filename:String, path:String, md5:String){
+    public init(filename:String, path:String, md5:String){
         self.filename = filename
         self.path = path
         self.fileMD5 = md5
@@ -71,18 +71,18 @@ public enum MobileType:Int {
 }
 
 public struct PhoneDevice {
-    var type:MobileType
-    var deviceId:String = ""
-    var manufacture:String = ""
-    var model:String = ""
-    var name:String = ""
-    var iccid:String = ""
-    var meid:String = ""
-    var totalSize:String = ""
-    var availSize:String = ""
-    var usedPercent:String = ""
+    public var type:MobileType
+    public var deviceId:String = ""
+    public var manufacture:String = ""
+    public var model:String = ""
+    public var name:String = ""
+    public var iccid:String = ""
+    public var meid:String = ""
+    public var totalSize:String = ""
+    public var availSize:String = ""
+    public var usedPercent:String = ""
     
-    init(type:MobileType, deviceId:String, manufacture:String, model:String) {
+    public init(type:MobileType, deviceId:String, manufacture:String, model:String) {
         self.type = type
         self.deviceId = deviceId
         self.manufacture = manufacture

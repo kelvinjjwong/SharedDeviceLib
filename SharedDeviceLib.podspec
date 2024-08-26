@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "SharedDeviceLib"
-  s.version     = "1.0.1"
+  s.version     = "1.0.2"
   s.summary     = "A shared library for device info."
   s.homepage    = "https://github.com/kelvinjjwong/SharedDeviceLib"
   s.license     = { :type => "MIT" }
