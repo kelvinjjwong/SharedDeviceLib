@@ -9,13 +9,13 @@ import Foundation
 
 public struct ImageSourceRecognizer {
     
-    public func recognize(url:URL) -> String {
+    public static func recognize(url:URL) -> String {
         
         let filename = url.lastPathComponent
         return self.recognize(filename: filename)
     }
     
-    public func recognize(filename:String) -> String {
+    public static func recognize(filename:String) -> String {
         var imageSource:String = ""
         if filename.starts(with: "mmexport") {
             imageSource = "WeChat"
