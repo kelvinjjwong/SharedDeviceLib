@@ -1,14 +1,14 @@
 
 import Foundation
 
-enum DeviceOS:Int {
+public enum DeviceOS:Int {
     case mac
     case android
 }
 
-struct DeviceShell {
+public struct DeviceShell {
     
-    static func getFilenameFromLs(from columns:[String], at columnIndex:Int) -> String{
+    public static func getFilenameFromLs(from columns:[String], at columnIndex:Int) -> String{
         let columnSize = columnIndex + 1
         var filename = ""
         if columns.count >= columnSize {
@@ -22,7 +22,7 @@ struct DeviceShell {
         return filename
     }
     
-    static func getFilenames(from string:String, refer reference:[String:[String]] = [:], basePath:String, excludeFilenames:Set<String>, allowedExt:Set<String>, allowedSuffix:Set<String>, deviceOS:DeviceOS = .android) -> [PhoneFile] {
+    public static func getFilenames(from string:String, refer reference:[String:[String]] = [:], basePath:String, excludeFilenames:Set<String>, allowedExt:Set<String>, allowedSuffix:Set<String>, deviceOS:DeviceOS = .android) -> [PhoneFile] {
         var result:[PhoneFile] = []
         
         var filerows:[String:[String]] = [:]
@@ -116,7 +116,7 @@ struct DeviceShell {
     }
     
     
-    static func getFilenames(from string:String, refer reference:[String:[String]] = [:], excludeFilenames:Set<String>, allowedExt:Set<String>, allowedSuffix:Set<String>,  deviceOS:DeviceOS = .mac) -> [String] {
+    public static func getFilenames(from string:String, refer reference:[String:[String]] = [:], excludeFilenames:Set<String>, allowedExt:Set<String>, allowedSuffix:Set<String>,  deviceOS:DeviceOS = .mac) -> [String] {
         var result:[String] = []
         
         var filerows:[String:[String]] = [:]
@@ -192,7 +192,7 @@ struct DeviceShell {
         return result.sorted()
     }
     
-    static func getFolderNames(from string:String) -> [String] {
+    public static func getFolderNames(from string:String) -> [String] {
         var result:[String] = []
         let lines = string.components(separatedBy: "\n")
         for line in lines {
