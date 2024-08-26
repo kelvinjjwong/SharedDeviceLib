@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct ImageSourceRecognizer {
+public struct ImageSourceRecognizer {
     
-    func recognize(url:URL) -> String {
+    public func recognize(url:URL) -> String {
         
         let filename = url.lastPathComponent
         return self.recognize(filename: filename)
     }
     
-    func recognize(filename:String) -> String {
+    public func recognize(filename:String) -> String {
         var imageSource:String = ""
         if filename.starts(with: "mmexport") {
             imageSource = "WeChat"

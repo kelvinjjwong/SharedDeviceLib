@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum ChecksumMode : Int {
+public enum ChecksumMode : Int {
     case Rough
     case Deep
 }
 
-struct PhoneFile {
+public struct PhoneFile {
     
     var filename:String = ""
     var path:String = ""
@@ -64,13 +64,13 @@ struct PhoneFile {
     }
 }
 
-enum MobileType:Int {
+public enum MobileType:Int {
     case Android
     case iPhone
     case Unknown
 }
 
-struct PhoneDevice {
+public struct PhoneDevice {
     var type:MobileType
     var deviceId:String = ""
     var manufacture:String = ""
@@ -90,11 +90,11 @@ struct PhoneDevice {
     }
     
     // present as title in tree node
-    func represent() -> String {
+    public func represent() -> String {
         return PhoneDevice.represent(deviceId: deviceId, name: name, manufacture: manufacture, model: model, type: type)
     }
     
-    static func represent(deviceId:String, name:String, manufacture:String, model:String, type:MobileType) -> String {
+    public static func represent(deviceId:String, name:String, manufacture:String, model:String, type:MobileType) -> String {
         var summary = ""
 //        if totalSize != "" {
 //            summary = "\(availSize) / \(totalSize), used \(usedPercent)"

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ImageType : Int {
+public enum ImageType : Int {
     case photo
     case video
     case other
@@ -15,14 +15,14 @@ enum ImageType : Int {
 
 // MARK: - FILE TYPE
 
-struct FileTypeRecognizer {
+public struct FileTypeRecognizer {
     
-    static let photoExts:[String] = ["jpg", "jpeg", "png", "heic"]
+    public static let photoExts:[String] = ["jpg", "jpeg", "png", "heic"]
     static let videoExts:[String] = ["mov", "mp4", "mpeg", "mts", "m2ts"]
     
-    let allowed:Set<String> = ["jpg", "jpeg", "mp4", "mov", "mpg", "mpeg", "png", "heic", "mts", "m2ts", "pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "vcf", "amr"]
+    public let allowed:Set<String> = ["jpg", "jpeg", "mp4", "mov", "mpg", "mpeg", "png", "heic", "mts", "m2ts", "pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "vcf", "amr"]
     
-    func recognize(from url:URL) -> ImageType {
+    public func recognize(from url:URL) -> ImageType {
         var type = self.recognize(from: url.lastPathComponent)
         
         if type == .other {
@@ -43,7 +43,7 @@ struct FileTypeRecognizer {
         return type
     }
     
-    func recognize(from filename: String) -> ImageType {
+    public func recognize(from filename: String) -> ImageType {
         let fileExt:String = (filename.split(separator: Character(".")).last?.lowercased()) ?? filename
         if FileTypeRecognizer.photoExts.contains(fileExt) {
             return.photo
